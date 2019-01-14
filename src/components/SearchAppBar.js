@@ -69,12 +69,6 @@ const styles = theme => ({
 const SearchAppBar = (props) => {
   const { classes, title, searchPlaceholder, onSearch } = props;
 
-  handleSearch(input) {
-    /**
-     * Should delay and do search callback
-     */
-  }
-
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -89,7 +83,7 @@ const SearchAppBar = (props) => {
             </div>
             <InputBase
               placeholder={searchPlaceholder}
-              onChange={input => this.handleSearch(input)}
+              onChange={input => onSearch(input.target.value)}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

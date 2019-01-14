@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from "react";
 import "./App.css";
 import SearchAppBar from './components/SearchAppBar';
+import PhotoGridList from './components/PhotoGridList';
 
 class App extends Component {
 
@@ -16,7 +17,10 @@ class App extends Component {
 
   render() {
     return (
-      <SearchAppBar title='GIF Search' searchPlaceholder='Search all GIFs' onSearch={this.handleSearch} />
+      <div style={{ width: '100%' }}>
+        <SearchAppBar title='GIF Search' searchPlaceholder='Search all GIFs' onSearch={this.handleSearch} />
+        <PhotoGridList data={this.state.data} />
+      </div >
     );
   }
 
