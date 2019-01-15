@@ -26,10 +26,13 @@ const styles = theme => ({
     left: '50%',
     transform: `translate(-50%, -50%)`,
   },
-  text: {
+  messageContainer: {
     position: 'relative',
     top: '40%'
   },
+  hint: {
+
+  }
 });
 
 
@@ -38,7 +41,8 @@ class PhotoGridList extends Component {
   state = {
     open: false,
     image: null,
-    emptyMessage: 'No images are loaded'
+    emptyMessage: 'No images are loaded.',
+    hint: 'Hint: type in the search input and press Enter key.'
   };
 
   handleOpen = (title, url) => {
@@ -62,7 +66,9 @@ class PhotoGridList extends Component {
             ))}
           </GridList>
           <LightBox onClose={() => this.handleClose()} image={this.state.image} />
-        </div >) : (<Typography className={classes.text} align='center'>{this.state.emptyMessage}</Typography>)
+        </div >) : (<div className={classes.messageContainer} ><Typography variant='h6' align='center'>{this.state.emptyMessage}</Typography>
+          <Typography variant='caption' className={classes.hint} align='center'><i>{this.state.hint}</i></Typography>
+        </div>)
     );
   }
 

@@ -67,7 +67,7 @@ const styles = theme => ({
 
 
 const SearchAppBar = (props) => {
-  const { classes, title, searchPlaceholder, onSearch } = props;
+  const { classes, title, searchPlaceholder, onSearch, validateKeyPress } = props;
 
   return (
     <div className={classes.root}>
@@ -83,7 +83,8 @@ const SearchAppBar = (props) => {
             </div>
             <InputBase
               placeholder={searchPlaceholder}
-              onChange={input => onSearch(input.target.value)}
+              onChange={input => onSearch(input)}
+              onKeyDown={input => validateKeyPress(input)}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

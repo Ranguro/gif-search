@@ -33,14 +33,12 @@ function LightBox(props) {
   const { classes, image, onClose } = props;
   return (
     image && <Modal
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
       open={image != null}
       onClose={onClose}>
       <div className={classes.paper}>
         <img alt={image.title} src={image.url} />
         <div className={classes.btnContainer}>
-          <Button className={classes.btn} onClick={onClose} color="primary">
+          <Button className={classes.btn} onClick={onClose} color='primary'>
             Close
           </Button>
         </div>
