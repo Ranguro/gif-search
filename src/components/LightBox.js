@@ -1,4 +1,5 @@
 import Modal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
@@ -16,6 +17,16 @@ const styles = theme => ({
     left: '50%',
     transform: `translate(-50%, -50%)`,
   },
+  btnContainer: {
+    flex: '0 0 auto',
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: '5px',
+    justifyContent: 'flex-end',
+    btn: {
+      display: 'block'
+    }
+  }
 });
 
 function LightBox(props) {
@@ -28,6 +39,11 @@ function LightBox(props) {
       onClose={onClose}>
       <div className={classes.paper}>
         <img alt={image.title} src={image.url} />
+        <div className={classes.btnContainer}>
+          <Button className={classes.btn} onClick={onClose} color="primary">
+            Close
+          </Button>
+        </div>
       </div>
     </Modal>
   );
