@@ -47,7 +47,6 @@ class App extends Component {
   }
 
   handleSearch(input) {
-    debugger;
     this.setState({ searchTerm: input.target.value });
   }
 }
