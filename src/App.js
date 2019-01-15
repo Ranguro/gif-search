@@ -10,7 +10,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      apiUrl: 'http://api.giphy.com/v1/gifs/search',
+      apiKey: 'LiT4XaeBUDCDtVpLNuTcc8fzKv84AmW6'
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
@@ -25,13 +27,16 @@ class App extends Component {
   }
 
   handleSearch(input) {
-    const API_URL = 'http://api.giphy.com/v1/gifs/search';
-    const API_KEY = 'LiT4XaeBUDCDtVpLNuTcc8fzKv84AmW6';
-    axios.get(`${API_URL}?q=${input.trim().replace(/ /g, "+")}&api_key=${API_KEY}`)
-      .then(res => {
-        const data = res.data.data;
-        this.setState({ data });
-      })
+    if (input === '') {
+      this.setState({ data: [] })
+    } else {
+      axios.get(`${this.state.apiUrl}?q=${input.trim().replace(/ /g, "+")}&api_key=${this.state.apiKey}`)
+        .then(res => {
+          const data = res.data.data;
+          this.setState({ data });
+        })
+        .catch(err => console.log(err))
+    }
   }
 }
 

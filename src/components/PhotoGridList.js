@@ -2,6 +2,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import LightBox from './LightBox';
 import React, { Component } from 'react';
 
 const styles = theme => ({
@@ -54,6 +55,7 @@ class PhotoGridList extends Component {
               </GridListTile>
             ))}
           </GridList>
+          <LightBox onClose={() => this.handleClose()} image={this.state.image} />
         </div >) : this.getEmptyMessage()
     );
   }
